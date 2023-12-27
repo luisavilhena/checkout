@@ -40,7 +40,7 @@ function Checkout({onPayment, carData, handleRemoveItem, handleAddOrderNote, onC
     }
   
     return (
-      <div className={`z-30 container pt-[30px] p-4 bg-gray-dark fixed top-0 bottom-0 right-0 w-[510px] height-[100vh] ${onPayment ? "transition-all right-[510px] " : "transition-all right-0"}`}>
+      <div className={`z-30 container pt-[30px] p-4 bg-gray-dark fixed top-0 bottom-0 right-0 w-[410px] height-[100vh] ${onPayment ? "transition-all right-[410px] " : "transition-all right-0"}`}>
         {onPayment ? (
         <div className='mb-[40px] text-white'>
           <div
@@ -77,7 +77,7 @@ function Checkout({onPayment, carData, handleRemoveItem, handleAddOrderNote, onC
             </tr>
           </thead>
           </table>
-          <div className='overflow-auto h-[40vh] w-full'>
+          <div className='overflow-auto h-[55vh] w-full'>
             {carData.length === 0 ? (
                 <div className="text-center py-4 mt-10 w-full">
                     <h2 className="text-3xl mb-5">Your cart is empty</h2>
@@ -137,7 +137,7 @@ function Checkout({onPayment, carData, handleRemoveItem, handleAddOrderNote, onC
           {carData.length > 0 && !onPayment ? (
             <button 
             onClick={handleGoPayment}
-            className=' w-[450px] bg-orange border border-orange shadow-md text-white py-3 mt-1 rounded shadow hover:bg-gray-dark hover:border-orange'> 
+            className=' w-[350px] bg-orange border border-orange shadow-md text-white py-3 mt-1 rounded shadow hover:bg-gray-dark hover:border-orange'> 
             Continue to Payment
             </button>
           ):('')}

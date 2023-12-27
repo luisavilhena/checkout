@@ -11,10 +11,10 @@ const Payment = (props) => {
     const [tableNo, setTableNo] = useState('');
   
     const handlePayment = () => {
-      console.log('Payment ok');
+        console.log('Payment ok');
     };
     return (
-    <div className={`z-30 container pt-[80px] px-[30px] fixed w-[510px] top-0 bottom-0 text-white text-start bg-gray-dark border-l border-gray-light overflow-hidden ${props.onPayment ? "transition-all right-0 " : "transition-all right-[-510px]"}`}>
+    <div className={`z-30 container pt-[80px] px-[30px] fixed w-[410px] top-0 bottom-0 text-white text-start bg-gray-dark border-l border-gray-light overflow-hidden ${props.onPayment ? "transition-all right-0 " : "transition-all right-[-410px]"}`}>
         <div>
             <h2 className="text-3xl mb-[10px]">Payment</h2>
             {/* Content fixed only for test */}
