@@ -77,7 +77,7 @@ function Checkout({onPayment, carData, handleRemoveItem, handleAddOrderNote, onC
             </tr>
           </thead>
           </table>
-          <div className='overflow-auto h-[55vh] w-full'>
+          <div className='overflow-auto h-[50vh] w-full'>
             {carData.length === 0 ? (
                 <div className="text-center py-4 mt-10 w-full">
                     <h2 className="text-3xl mb-5">Your cart is empty</h2>
