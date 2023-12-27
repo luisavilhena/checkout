@@ -6,6 +6,7 @@ import FilterBar from './FilterBar';
 import Checkout from './Car/Checkout';
 import Payment from './Car/Payment';
 import Menu from './Menu';
+import LoadingElement from './LoadingElement';
 
 function Home() {
     const DATA =[
@@ -74,6 +75,8 @@ function Home() {
     const [termSearch, setTermSearch] = useState('')
     const [carData, setCarData] = useState([]);
     const [showPayment, setShowPayment] = useState(false);
+    const [loading, setLoading] = useState(false);
+
 
     //add new Data for Car
     const handleAddToCart = (item) => {
@@ -127,11 +130,19 @@ function Home() {
     }
     //inputForm is from file SearchBar
     const inputForm = (enteredSearch) => {
-        setTermSearch(enteredSearch)
+        setLoading(true);
+        setTimeout(() => {
+            setTermSearch(enteredSearch)
+            setLoading(false)
+        }, 1000);
     }
     //filterBar is from file FilterBar
     const filterBar =(newButton) => {
-        setTermSearch(newButton)
+        setLoading(true);
+        setTimeout(() => {
+            setTermSearch(newButton)
+            setLoading(false)
+        }, 1000)
     }
     //filter category or title from SearchBar
     const itemFilter = termSearch
@@ -158,29 +169,32 @@ function Home() {
                     <FilterBar
                         onFilterBar={filterBar}
                     />
-                    <h3 className='text-xl text-start ml-[40px] mb-[40px]'>Choose Dishes</h3>
-                    <ul className='flex h-screen flex-wrap content-start justify-start'>
-                    {itemFilter.length === 0 ? (
-                        <li className="text-white text-center w-full mb-4">
-                            <p>No results found.</p>
-                        </li>
-                    ) : (
-                        itemFilter.map((e) => (
-                            <CardItem
-                                {...e}
-                                onAddToCart={handleAddToCart}
-                                key={e.id}
-                                title={e.title}
-                                price={e.price}
-                                img={e.img}
-                                alt={e.title}
-                                category={e.category}
-                                totalValue={e.totalValue}
-                                note={e.note}
-                            />
-                        ))
-                    )}
-                    </ul>
+                    <h3 className='text-xl text-start ml-[40px]'>Choose Dishes</h3>
+                    <div className='relative pt-[40px]'>
+                        {loading && <LoadingElement/>}
+                        <ul className='flex h-screen flex-wrap content-start justify-start'>
+                        {itemFilter.length === 0 ? (
+                            <li className="text-white text-center w-full mb-4">
+                                <p>No results found.</p>
+                            </li>
+                        ) : (
+                            itemFilter.map((e) => (
+                                <CardItem
+                                    {...e}
+                                    onAddToCart={handleAddToCart}
+                                    key={e.id}
+                                    title={e.title}
+                                    price={e.price}
+                                    img={e.img}
+                                    alt={e.title}
+                                    category={e.category}
+                                    totalValue={e.totalValue}
+                                    note={e.note}
+                                />
+                            ))
+                        )}
+                        </ul>
+                    </div>
                 </div>
                 <div>
                     <Checkout

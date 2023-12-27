@@ -9,7 +9,6 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 function Checkout({onPayment, carData, handleRemoveItem, handleAddOrderNote, onClickPayment, offClickPayment }) {
     const [termNote, setTermNote] = useState('');
     const [totalAmount, setTotalAmount] = useState('');
-    const [goPayment, setGoPayment] = useState(false)
   
     const handleOrderNote = (itemId, value) => {
         handleAddOrderNote(itemId, value);
@@ -88,7 +87,7 @@ function Checkout({onPayment, carData, handleRemoveItem, handleAddOrderNote, onC
               carData.map((item) => (
                 <div key={item.id} className='mb-[50px]'>
                   <div className='flex items-start mb-[10px]'>
-                    <img src={item.img} alt="food image" className="mr-[10px] w-[40px]" />
+                    <img src={item.img} alt={item.title} className="mr-[10px] w-[40px]" />
                     <div className='w-[280px] text-start'>
                         <p className="font-bold">{item.title.slice(0, 25)}...</p>
                         <p className='text-gray-lighter'>${item.price.toFixed(2)}</p>

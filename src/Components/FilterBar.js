@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 
 function FilterBar(props){
-    var isClicked;
     const [active, setActive] = useState(null)
     const handleCategoriaChange = (newCategory) => {
         props.onFilterBar(newCategory);
